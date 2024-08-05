@@ -1,0 +1,120 @@
+* {
+  margin: o;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: white;
+  text-decoration: inherit;
+}
+a:hover {
+  color: green;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+Button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.2em 8.8em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+Button:hover {
+  border-color: #67ff64;
+}
+Button:focus,
+Button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #74ff82;
+  }
+  Button {
+    background-color: #f9f9f9;
+  }
+}
+.header {
+  width: 100vw;
+}
+.NavBar {
+  width: 100%;
+  display: grid;
+}
+
+.FullNavbar {
+  border: 1px solid goldenrod;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.pizzacontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px solid goldenrod;
+  gap: 7px;
+  width: 100vw;
+}
+.pizza {
+  margin-top: 20px;
+}
+
+.PizzaFondo {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-image: url(https://www.shutterstock.com/shutterstock/photos/1247137948/display_1500/stock-photo-tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-concrete-background-top-view-1247137948.jpg);
+  height: 20vh;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  padding: 10px;
+  background-color: black;
+  width: 100%;
+  color: #f8f9fa;
+}
