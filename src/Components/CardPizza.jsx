@@ -11,7 +11,6 @@ function CardPizza({ name, price, ingredients, picture }) {
           <Card.Img variant="top" src={picture} />
           <Card.Body>
             <Card.Title>Pizza {name}</Card.Title>
-
             <Card.Text className="items">
               Ingredientes: <br />
               🍕 {ingredients}
