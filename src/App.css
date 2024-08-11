@@ -56,6 +56,11 @@ Button:focus,
 Button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -98,16 +103,17 @@ Button:focus-visible {
   margin-top: 20px;
 }
 
-.PizzaFondo {
+.fondoHeader {
   display: flex;
   flex-direction: column;
   background-size: cover;
   background-image: url(https://www.shutterstock.com/shutterstock/photos/1247137948/display_1500/stock-photo-tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-concrete-background-top-view-1247137948.jpg);
-  height: 20vh;
+  height: 25vh;
   color: white;
   text-align: center;
   justify-content: center;
 }
+
 .footer {
   display: flex;
   justify-content: center;
