@@ -30,8 +30,8 @@ body {
   display: flex;
   justify-content: center;
   place-items: center;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 h1 {
@@ -61,6 +61,17 @@ form {
   flex-direction: column;
   align-items: center;
 }
+.formulario {
+  background-image: url("https://www.shutterstock.com/shutterstock/photos/1247137948/display_1500/stock-photo-tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-concrete-background-top-view-1247137948.jpg");
+  background-size: cover; /* Ajusta la imagen para cubrir el área */
+  background-position: center;
+  border: 5px solid #333; /* Borde de 5px de grosor con color gris oscuro */
+  border-radius: 10px;
+  padding: 20px; /* Espacio interno de 20px */
+  margin: 60px;
+  color: white; /* Color del texto */
+  text-align: center;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -78,7 +89,7 @@ form {
   width: 100vw;
 }
 .NavBar {
-  width: 100%;
+  width: 100vw;
   display: grid;
 }
 
@@ -97,6 +108,7 @@ form {
   justify-content: space-evenly;
   border: 1px solid goldenrod;
   gap: 7px;
+  height: 100vh; /* 100% de la altura de la ventana */
   width: 100vw;
 }
 .pizza {

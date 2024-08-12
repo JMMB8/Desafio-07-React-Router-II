@@ -28,7 +28,7 @@ const LoginPage = () => {
   };
 
   return (
-    <Form>
+    <Form className="formulario">
       <h1>Login</h1>
       {message && (
         <Alert variant={variant} onClose={() => setMessage("")} dismissible>
@@ -37,7 +37,7 @@ const LoginPage = () => {
       )}
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email </Form.Label>
+        <Form.Label>Correo electronico </Form.Label>
         <h3>{email}</h3>
         <Form.Control
           type="email"
@@ -45,13 +45,10 @@ const LoginPage = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        <Form.Text className="text-muted">
-          Nunca compartiremos su correo electrónico con nadie más.
-        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Contraseña</Form.Label>
         <Form.Control
           type="password"
           placeholder="Igresa tu contraseña"

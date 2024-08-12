@@ -33,15 +33,15 @@ const RegisterPage = () => {
   };
 
   return (
-    <Form>
-      <h1>Login</h1>
+    <Form className="formulario">
+      <h1>Formulario de registro</h1>
       {message && (
         <Alert variant={variant} onClose={() => setMessage("")} dismissible>
           {message}
         </Alert>
       )}
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email </Form.Label>
+        <Form.Label>Correo electronico </Form.Label>
         <h3>{email}</h3>
         <Form.Control
           type="email"
@@ -49,13 +49,10 @@ const RegisterPage = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        <Form.Text className="text-muted">
-          Nunca compartiremos su correo electrónico con nadie más.
-        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Contraseña</Form.Label>
         <Form.Control
           type="password"
           placeholder="Igresa tu contraseña"
@@ -66,7 +63,7 @@ const RegisterPage = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Cosign Password</Form.Label>
+        <Form.Label>Cofirmar contraseña</Form.Label>
         <Form.Control
           type="password"
           placeholder="Cofirma tu contraseña"
