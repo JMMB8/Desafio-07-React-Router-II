@@ -13,7 +13,11 @@ function CardPizza({ name, price, ingredients, picture }) {
             <Card.Title>Pizza {name}</Card.Title>
             <Card.Text className="items">
               Ingredientes: <br />
-              🍕 {ingredients}
+              <ul>
+                {ingredients.map((ingredients) => (
+                  <li key={ingredients}>🍕{ingredients}</li>
+                ))}
+              </ul>
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">

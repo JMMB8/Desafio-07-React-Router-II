@@ -17,21 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: white;
-  text-decoration: inherit;
-}
-a:hover {
-  color: green;
-}
-
 body {
   display: flex;
   justify-content: center;
   place-items: center;
-  height: 100vh;
-  width: 100vw;
 }
 
 h1 {
@@ -86,10 +75,10 @@ form {
   }
 }
 .header {
-  width: 100vw;
+  width: 100%;
 }
 .NavBar {
-  width: 100vw;
+  width: 100%;
   display: grid;
 }
 
@@ -100,16 +89,16 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: start;
 }
 .pizzacontainer {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
   border: 1px solid goldenrod;
-  gap: 7px;
-  height: 100vh; /* 100% de la altura de la ventana */
-  width: 100vw;
+  height: 100%; /* 100% de la altura de la ventana */
+  width: 100%;
 }
 .pizza {
   margin-top: 20px;
@@ -140,6 +129,7 @@ form {
   .pizzacontainer {
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .pizza {
@@ -153,9 +143,11 @@ form {
 }
 
 @media (max-width: 480px) {
+  .NavBar,
   .header,
   .footer {
     padding: 5px;
+    width: 100%;
   }
 
   button {
