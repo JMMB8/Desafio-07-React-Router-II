@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Home></Home>*/}
+      {/*<Home></Home>*/}
       {/* <RegisterPage />*/}
       {/*  <LoginPage></LoginPage>*/}
       <Cart />
