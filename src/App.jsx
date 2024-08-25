@@ -8,14 +8,16 @@ import CardPizza from "./Components/CardPizza";
 import RegisterPage from "./Components/RegisterPage";
 import LoginPage from "./Components/LoginPage";
 
+import Pizza from "./Components/Pizza";
+
 function App() {
   return (
     <>
       <Navbar />
-      {/*<Home></Home>*/}
-      {/* <RegisterPage />*/}
-      {/*  <LoginPage></LoginPage>*/}
-      <Cart />
+      {/* <Home/> */}
+      {/* <LoginPage/> */}
+      {/* <Cart /> */}
+      <Pizza />
 
       <Footer />
     </>

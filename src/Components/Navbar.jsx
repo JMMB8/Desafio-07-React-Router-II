@@ -13,10 +13,14 @@ function NavBar() {
 
   return (
     <Navbar expand="lg" bg="dark " data-bs-theme="dark">
+      <Navbar.Brand style={{
+  boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+  padding: '10px',
+  borderRadius: '5px'
+}}>Pizzeria Mamma Mia!</Navbar.Brand>
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Navbar.Brand>Pizzeria Mamma Mia!</Navbar.Brand>
           <Nav className="me-auto">
             <Button variant="outline-light" className="text-white me-2">
               🍕Home

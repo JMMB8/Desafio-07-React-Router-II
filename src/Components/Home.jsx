@@ -1,12 +1,21 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
 import CardPizza from "./CardPizza";
 import Header from "./Header";
-import { pizzas } from "./pizzas";
+// import { pizzas } from "./pizzas";
 import { Col } from "react-bootstrap";
 
 const Home = () => {
-  
+  const [pizzas, setPizas] = useState([]);
+  const getPizzas = async () => {
+    const response = await fetch("http://localhost:5000/api/pizzas");
+    const pizzas = await response.json();
+    setPizas(pizzas);
+  };
+  useEffect(() => {
+    getPizzas();
+  }, []);
+
   return (
     <>
       <Header></Header>
