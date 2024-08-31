@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import CardPizza from "./CardPizza";
-import Header from "./Header";
+import CardPizza from "../Components/CardPizza";
+import Header from "../Components/Header";
 // import { pizzas } from "./pizzas";
 import { Col } from "react-bootstrap";
 

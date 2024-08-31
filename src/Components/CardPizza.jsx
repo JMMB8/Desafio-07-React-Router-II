@@ -3,7 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { formatNumber } from "../assets/scripts";
 import Button from "react-bootstrap/Button";
 
-function CardPizza({   desc, name, price, ingredients, picture }) {
+function CardPizza({ desc, name, price, ingredients, picture }) {
   return (
     <div className="PizzaContainer">
       <div>
@@ -19,16 +19,14 @@ function CardPizza({   desc, name, price, ingredients, picture }) {
                 ))}
               </ul>
             </Card.Text>
-  <hr className="border border-warning" />
-        {desc ? (
-          <div>
-            <Card.Text>{desc}</Card.Text>
-          </div>
-        ) : null}
+            <hr className="border border-warning" />
+            {desc ? (
+              <div>
+                <Card.Text>{desc}</Card.Text>
+              </div>
+            ) : null}
           </Card.Body>
-        
-          
-      
+
           <ListGroup className="list-group-flush">
             <ListGroup.Item>
               {" "}
@@ -36,8 +34,11 @@ function CardPizza({   desc, name, price, ingredients, picture }) {
             </ListGroup.Item>
           </ListGroup>
 
-          <Card.Body className="d-flex justify-content-center" >
-
+          <Card.Body className="d-flex justify-content-center">
+            <Button variant="outline-dark" className="me-5">
+              {" "}
+              👀 Ver mas{" "}
+            </Button>
             <Button variant="dark">Añadir 🛒</Button>
           </Card.Body>
         </Card>

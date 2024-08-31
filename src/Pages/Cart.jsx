@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { pizzas } from "./pizzas";
+import { pizzas } from "../Components/pizzas";
 import {
   Container,
   Row,
