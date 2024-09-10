@@ -7,9 +7,11 @@ import lockopen from "../assets/img/lockOpen.png";
 import lock from "../assets/img/lock.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
 function NavBar() {
-  const total = 25000;
+  const { calcularTotal } = useContext(CartContext);
   const token = false;
 
   return (
@@ -71,7 +73,11 @@ function NavBar() {
           >
             {" "}
             <Link to="/cart" className="text-white ms-3 text-decoration-none">
-              🛒Total:{formatNumber(total)}
+              🛒Total:
+              {calcularTotal.toLocaleString("es-CL", {
+                style: "currency",
+                currency: "CLP",
+              })}
             </Link>
           </Button>
         </Navbar.Collapse>

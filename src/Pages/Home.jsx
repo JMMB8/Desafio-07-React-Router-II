@@ -1,33 +1,45 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import CardPizza from "../Components/CardPizza";
 import Header from "../Components/Header";
-// import { pizzas } from "./pizzas";
-import { Col } from "react-bootstrap";
+import { Col, Container, Alert, Spinner } from "react-bootstrap";
+import usePizzaCart from "../hooks/usePizzaCart";
 
 const Home = () => {
-  const [pizzas, setPizas] = useState([]);
-  const getPizzas = async () => {
-    const response = await fetch("http://localhost:5000/api/pizzas");
-    const pizzas = await response.json();
-    setPizas(pizzas);
-  };
-  useEffect(() => {
-    getPizzas();
-  }, []);
+  const { pizzas, loading, error, agregarcarrito } = usePizzaCart();
+
+  if (loading) {
+    return (
+      <Container className="mt-4 text-center">
+        <Spinner animation="border">
+          <output aria-live="polite" className="visually-hidden">
+            Cargando...
+          </output>
+        </Spinner>
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container className="mt-4">
+        <Alert variant="danger">{error}</Alert>
+      </Container>
+    );
+  }
 
   return (
     <>
       <Header></Header>
-
       <div className="pizzacontainer">
         {pizzas.map((pizza) => (
           <Col md={4} className="mb-4 d-flex" key={pizza.id}>
             <CardPizza
+              id={pizza.id}
               name={pizza.name}
               price={pizza.price}
               ingredients={pizza.ingredients}
-              picture={pizza.img}
+              img={pizza.img}
+              agregarcarrito={() => agregarcarrito({ ...pizza, quantity: 1 })}
             ></CardPizza>
           </Col>
         ))}
