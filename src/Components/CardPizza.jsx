@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { Card, Button, Container, Alert } from "react-bootstrap";
 import usePizzaCart from "../hooks/usePizzaCart";
 
 const CardPizza = ({ id, name, price, ingredients, img }) => {
   const [showNotification, setShowNotification] = useState(false);
   const { agregarCarrito } = usePizzaCart();
+  const navigate = useNavigate();
+  const goDetails = () => {
+    navigate(`/pizza/${id}`);
+  };
 
   const handleAddPizza = () => {
     const pizza = {
@@ -49,9 +53,9 @@ const CardPizza = ({ id, name, price, ingredients, img }) => {
           <strong>Precio:</strong> {formattedPrice}
         </Card.Text>
         <Container fluid className="custom-btns">
-          <Link to={`/pizza/${id}`}>
-            <Button className="me-5"> 👀 Ver Más</Button>
-          </Link>
+          <Button className="me-5" onClick={goDetails}>
+            👀 Ver Más
+          </Button>
           <Button className="me-5" onClick={handleAddPizza}>
             Añadir
           </Button>

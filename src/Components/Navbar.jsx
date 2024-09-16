@@ -1,18 +1,22 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import { formatNumber } from "../assets/scripts";
-import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import lockopen from "../assets/img/lockOpen.png";
-import lock from "../assets/img/lock.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import {
+  Container,
+  Nav,
+  Navbar,
+  OverlayTrigger,
+  Image,
+  Button,
+  Tooltip,
+} from "react-bootstrap";
+
+import { NavLink } from "react-router-dom";
 import { useContext } from "react";
+import { UserContext } from "../Context/UserContex";
 import { CartContext } from "../Context/CartContext";
 
-function NavBar() {
+const NavbarApp = () => {
   const { calcularTotal } = useContext(CartContext);
-  const token = false;
+  const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
+  const { token, logout } = useContext(UserContext);
 
   return (
     <Navbar expand="lg" bg="dark " data-bs-theme="dark">
@@ -29,61 +33,90 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Button variant="outline-light" className="text-white me-2">
-              <Link to="/" className="text-white ms-3 text-decoration-none">
-                {" "}
+            <OverlayTrigger
+              placement="bottom"
+              overlay={
+                <Tooltip id="tooltip-home">Ir a la página principal</Tooltip>
+              }
+            >
+              <NavLink
+                to="/"
+                className={`text-white ms-3 text-decoration-none ${setActiveClass}`}
+              >
                 🍕Home
-              </Link>
-            </Button>
-            <Button variant="outline-light" className="text-white me-2">
-              <Link
-                to="/registerPage"
-                className="text-white ms-3 text-decoration-none"
+              </NavLink>
+            </OverlayTrigger>
+            {token ? (
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id="tooltip-profile">Ver perfil</Tooltip>}
               >
-                🔐
-                <image src={token ? lockopen : lock}></image>
-                {token ? "Profile" : "Register"}
-              </Link>
-            </Button>
-            <Button variant="outline-light" className="text-white me-2">
-              {" "}
-              <Link
-                to="/LoginPage"
-                className="text-white ms-3 text-decoration-none"
+                <NavLink
+                  to="/profile"
+                  className={`text-white ms-3 text-decoration-none ${setActiveClass}`}
+                >
+                  🔓Profile
+                </NavLink>
+              </OverlayTrigger>
+            ) : (
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id="tooltip-login">Iniciar sesión</Tooltip>}
               >
-                🔐
-                <image src={token ? lockopen : lock}></image>
-                {token ? "LogOut" : "Login"}
-              </Link>
-            </Button>{" "}
-            <Button variant="outline-light" className="text-white me-2">
-              <Link
-                to="/Profile"
-                className="text-white ms-3 text-decoration-none"
+                <NavLink
+                  to="/loginPage"
+                  className={`text-white ms-3 text-decoration-none ${setActiveClass}`}
+                >
+                  🔐Login
+                </NavLink>
+              </OverlayTrigger>
+            )}
+            {token ? (
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id="tooltip-logout">Cerrar sesión</Tooltip>}
               >
-                👤Profile
-              </Link>
-            </Button>
+                <button onClick={logout} className="btn4">
+                  🔒Logout
+                </button>
+              </OverlayTrigger>
+            ) : (
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id="tooltip-register">Registrarse</Tooltip>}
+              >
+                <NavLink
+                  to="/RegisterPage"
+                  className={`text-white ms-3 text-decoration-none ${setActiveClass}`}
+                >
+                  🔐Register
+                </NavLink>
+              </OverlayTrigger>
+            )}
           </Nav>
-
-          <Button
-            variant="outline-light"
-            className="text-primary mx-4 "
-            style={{ whiteSpace: "nowrap" }}
-          >
-            {" "}
-            <Link to="/cart" className="text-white ms-3 text-decoration-none">
-              🛒Total:
-              {calcularTotal.toLocaleString("es-CL", {
-                style: "currency",
-                currency: "CLP",
-              })}
-            </Link>
-          </Button>
+          <Nav>
+            <OverlayTrigger
+              placement="bottom"
+              overlay={
+                <Tooltip id="tooltip-cart">Ver carrito de compras</Tooltip>
+              }
+            >
+              <NavLink
+                to="/cart"
+                className={`text-white ms-3 text-decoration-none ${setActiveClass}`}
+              >
+                🛒Total:{" "}
+                {calcularTotal.toLocaleString("es-CL", {
+                  style: "currency",
+                  currency: "CLP",
+                })}
+              </NavLink>
+            </OverlayTrigger>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
-export default NavBar;
+export default NavbarApp;

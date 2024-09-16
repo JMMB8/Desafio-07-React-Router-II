@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Container,
   Row,
@@ -9,6 +10,7 @@ import {
   Alert,
 } from "react-bootstrap";
 import usePizzaCart from "../hooks/usePizzaCart";
+import { UserContext } from "../Context/UserContex";
 
 const Cart = () => {
   const {
@@ -18,6 +20,7 @@ const Cart = () => {
     disminuirQuantity,
     calcularTotal,
   } = usePizzaCart();
+  const { token } = useContext(UserContext);
 
   const getPizzaDetails = (pizzaId) => {
     return pizzas.find((pizza) => pizza.id === pizzaId);
@@ -152,7 +155,12 @@ const Cart = () => {
           </tr>
         </tbody>
       </Table>
-      <Button variant="success" className="mt-3">
+      {!token && (
+        <Alert variant="warning" className="mt-3">
+          Debes iniciar sesión para proceder al pago.
+        </Alert>
+      )}
+      <Button variant="success" className="mt-3" disabled={!token}>
         Pagar
       </Button>
     </Container>
