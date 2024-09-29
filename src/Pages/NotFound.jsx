@@ -7,7 +7,7 @@ const NotFound = () => {
     <Container className="pt-5">
       <h1 className="mb-4">La ruta que intentas consultar no existe :/</h1>
       <Link to="/" className="text-decoration-none">
-        Volver
+        Volver al home
       </Link>
     </Container>
   );

@@ -1,17 +1,16 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import Cart from "./Pages/Cart";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
-import CardPizza from "./Components/CardPizza";
 import RegisterPage from "./Pages/RegisterPage";
 import LoginPage from "./Pages/LoginPage";
 import Pizza from "./Pages/Pizza";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NotFound from "./Pages/NotFound.jsx";
 import Profile from "./Pages/Profile";
-import { UserContext } from "./Context/UserContex.jsx";
+import { UserContext } from "../src/Context/UserContex";
 import { useContext } from "react";
 
 function App() {

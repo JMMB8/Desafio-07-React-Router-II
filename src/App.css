@@ -30,7 +30,7 @@ h1 {
 Button {
   text-align: center;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid goldenrod;
   padding: 0.2em 8.8em;
   font-size: 1em;
   font-weight: 500;
@@ -52,7 +52,7 @@ form {
   align-items: center;
 }
 .formulario,
-.profile-container {
+.profile-image {
   background-image: url("https://www.shutterstock.com/shutterstock/photos/1247137948/display_1500/stock-photo-tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-concrete-background-top-view-1247137948.jpg");
   background-size: cover; /* Ajusta la imagen para cubrir el área */
   background-position: center;

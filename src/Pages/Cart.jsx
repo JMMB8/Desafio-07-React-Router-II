@@ -20,11 +20,22 @@ const Cart = () => {
     disminuirQuantity,
     calcularTotal,
   } = usePizzaCart();
-  const { token } = useContext(UserContext);
+  const { token, checkoutCart, notification } = useContext(UserContext);
 
   const getPizzaDetails = (pizzaId) => {
     return pizzas.find((pizza) => pizza.id === pizzaId);
   };
+
+  const handleCheckout = async () => {
+    console.log("Cart antes de enviar al checkout:", cart);
+    const success = await checkoutCart(cart);
+    if (success) {
+      console.log("Compra completada con éxito");
+    } else {
+      console.log("Error en el proceso de checkout");
+    }
+  };
+
   if (cart.length === 0) {
     return (
       <Container className="mt-4">
@@ -66,7 +77,7 @@ const Cart = () => {
                           </Col>
                           <Col md={4}>
                             <Button
-                              variant="primary"
+                              variant="danger"
                               onClick={() => disminuirQuantity(index)}
                             >
                               Quitar
@@ -160,9 +171,19 @@ const Cart = () => {
           Debes iniciar sesión para proceder al pago.
         </Alert>
       )}
-      <Button variant="success" className="mt-3" disabled={!token}>
+      <Button
+        variant="success"
+        className="mt-3"
+        onClick={handleCheckout}
+        disabled={!token}
+      >
         Pagar
       </Button>
+      {notification.message && (
+        <Alert variant={notification.type} className="mt-3">
+          {notification.message}
+        </Alert>
+      )}
     </Container>
   );
 };

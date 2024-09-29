@@ -53,10 +53,10 @@ const CardPizza = ({ id, name, price, ingredients, img }) => {
           <strong>Precio:</strong> {formattedPrice}
         </Card.Text>
         <Container fluid className="custom-btns">
-          <Button className="me-5" onClick={goDetails}>
+          <Button className="me-5 " onClick={goDetails}>
             👀 Ver Más
           </Button>
-          <Button className="me-5" onClick={handleAddPizza}>
+          <Button className="me-5 " onClick={handleAddPizza}>
             Añadir
           </Button>
         </Container>

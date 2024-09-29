@@ -1,72 +1,42 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { useState } from "react";
-import Alert from "react-bootstrap/Alert";
+import { Container, Row, Col, Alert } from "react-bootstrap";
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContex";
+import LoginForm from "../Components/LoginForm";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [variant, setVariant] = useState("success");
-
-  const validarFormulario = (e) => {
-    e.preventDefault();
-
-    if (email === "" || password === "") {
-      setMessage("Faltan campos");
-      setVariant("danger");
-      return false;
-    }
-    if (password.length < 6) {
-      setMessage("El tamaño del password debe tener 6 caracteres o más");
-      setVariant("danger");
-      return false;
-    }
-    setMessage("Datos enviados");
-    setVariant("success");
-  };
+  const { notification } = useContext(UserContext);
 
   return (
-    <Form className="formulario">
-      <h1>Login</h1>
-      {message && (
-        <Alert variant={variant} onClose={() => setMessage("")} dismissible>
-          {message}
-        </Alert>
-      )}
-
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Correo electronico </Form.Label>
-        <h3>{email}</h3>
-        <Form.Control
-          type="email"
-          placeholder="Ingresa tu correo"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Contraseña</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Igresa tu contraseña"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
-
-      <Button
-        variant="primary"
-        type="submit"
-        onClick={(e) => validarFormulario(e)}
-      >
-        Enviar
-      </Button>
-      <hr />
-    </Form>
+    <Container
+      fluid
+      className="p-3"
+      style={{
+        maxWidth: "70%",
+        backgroundColor: "beige",
+        margin: "10px auto",
+        borderRadius: "10px",
+        borderTop: "10px solid #333",
+        borderBottom: "10px solid #333",
+      }}
+    >
+      <Row>
+        <Col md={4} className="d-none d-md-block">
+          <img
+            src="https://media.istockphoto.com/id/1442417585/es/foto/persona-recibiendo-un-pedazo-de-pizza-de-pepperoni-con-queso.jpg?s=612x612&w=0&k=20&c=Uk4fj96OIDxE4v2S5sRRXRY_gZ899_TE6jGD-T-TysI="
+            alt="Decorative"
+            style={{ width: "100%", height: "400px" }}
+          />
+        </Col>
+        <Col md={8}>
+          <h1>Regístrate</h1>
+          <p>¿Ya tienes una cuenta?</p>
+          {notification.message && (
+            <Alert variant={notification.type}>{notification.message}</Alert>
+          )}
+          <LoginForm />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
